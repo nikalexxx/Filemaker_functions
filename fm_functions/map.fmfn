@@ -1,0 +1,21 @@
+/*
+map(array;function)
+
+map(<array>;<string>) => <array>
+
+Usage:
+
+map("a¶b¶c";"Upper")
+=>
+A
+B
+C
+
+map("-1¶2¶-3";"Abs")
+=>
+1
+2
+3
+*/
+
+Evaluate(function & "(\"" & Substitute(array;"¶";"\") & \"\¶\" & " & function & "(\"") & "\")")

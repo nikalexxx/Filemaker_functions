@@ -1,0 +1,35 @@
+/*
+H(string)
+
+H(<string>) => <number>
+
+Usage:
+
+Set Variable [ $var[H("value 1")] ; 1]
+Set Variable [ $var[H("value 2")] ; 2]
+
+Show Custom Dialog [ $var[H("value 1")] + $var[H("value 2")] ]
+=> 3
+*/
+
+Let(
+[
+  $$GLOBAL_HASH = If($$GLOBAL_HASH="";"{}";$$GLOBAL_HASH);
+  i = JSONGetElement($$GLOBAL_HASH;string);
+  c = JSONListKeys($$GLOBAL_HASH;"");
+  c = If(c="";0;c);
+  n = If(i="";
+    Let(
+      $$GLOBAL_HASH = JSONSetElement(
+        $$GLOBAL_HASH;
+        string;
+        ValueCount(JSONListKeys($$GLOBAL_HASH;""));
+        JSONNumber
+      );
+      JSONGetElement($$GLOBAL_HASH;string)
+    );
+    i
+  )
+];
+n
+)
