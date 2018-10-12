@@ -1,21 +1,12 @@
 /*
-map(array;function)
-
-map(<array>;<string>) => <array>
+@name map
+@param {array} array
+@param {string} function
+@returns {array}
 
 Usage:
-
-map("a¶b¶c";"Upper")
-=>
-A
-B
-C
-
-map("-1¶2¶-3";"Abs")
-=>
-1
-2
-3
+map("a¶b¶c";"Upper") => "A¶B¶C"
+map("-1¶2¶-3";"Abs") => "1¶2¶3"
 */
 
 Evaluate(function & "(\"" & Substitute(array;"¶";"\") & \"\¶\" & " & function & "(\"") & "\")")

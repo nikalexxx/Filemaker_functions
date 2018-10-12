@@ -1,15 +1,12 @@
 /*
-array_include(array;value)
-
-array_include(<array>;<string>) => <boolean>
+@name array_include
+@param {array} array
+@param {string} value
+@returns {boolean}
 
 Usage:
-
-array_include("a¶b¶c";"a")
-=> True
-
-array_include("a¶b¶c";"d")
-=> False
+array_include("a¶b¶c";"a") => True
+array_include("a¶b¶c";"d") => False
 */
 
 JSONGetElement("{\"" & Substitute(array;"¶";"\": 1,¶\"") & "\": 1¶}";value) = 1
