@@ -1,0 +1,24 @@
+/**
+ * @name reduce_eval
+ * @param {array} array
+ * @param {string} a
+ * @param {string} e
+ * @param {string} expression
+ * @param init
+ *
+ * Usage:
+ * @example reduce_eval(range(1;100);"a";"e";"a+e";0) // 5050 (sum)
+ * @example reduce_eval(range(1;6);"a";"e";"a*e";1) // 720 (factorial)
+ * @example reduce_eval(range(1;10);"a";"e";"a & \"@\"";"") // "@@@@@@@@@@"
+ */
+
+Let(
+  [
+    r = GetAsText(Random);
+    r = Right(r;Length(r)-2);
+    g = "$$acc_" & r;
+    start = g & " = Let([" & acc & " = " & g & ";" & e & " = \"";
+    end = "\"];" & expression & ")"
+  ];
+  Evaluate("Let([" & g & "=\"" & init & "\";" & start & Substitute(array;"¶";end & ";" & start) & end & "];" & g & ")")
+)

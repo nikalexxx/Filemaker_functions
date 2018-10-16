@@ -1,12 +1,12 @@
-/*
-@name map
-@param {array} array
-@param {string} function
-@returns {array}
-
-Usage:
-map("a¶b¶c";"Upper") => "A¶B¶C"
-map("-1¶2¶-3";"Abs") => "1¶2¶3"
-*/
+/**
+ * @name map
+ * @param {array} array
+ * @param {string} function
+ * @returns {array}
+ *
+ * Usage:
+ * @example map("a¶b¶c";"Upper") // "A¶B¶C"
+ * @example map("-1¶2¶-3";"Abs") // "1¶2¶3"
+ */
 
 Evaluate(function & "(\"" & Substitute(array;"¶";"\") & \"\¶\" & " & function & "(\"") & "\")")
