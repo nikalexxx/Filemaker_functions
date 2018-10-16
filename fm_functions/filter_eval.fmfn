@@ -17,7 +17,7 @@ Let(
     g = "exp_" & r;
     start = g & "_f = " & g & "_f & Let([" & e & " = \"";
     end = "\";" & g & " = " & expression & "];If(" & g & ";" & e & " & \"\¶\";\"\"))";
-    a = Evaluate("Let([" & g & "_f=\"\";" & start & Substitute(array;"¶";end & ";" & start) & end & "];" & g & "_f)")
+    a = Evaluate("Let([" & g & "_f=\"\";" & start & Substitute(array;"¶";end & ";" & start) & end & ";" & g & "=\"\";a=" & g & "_f;" & g & "_f=\"\"];a)")
   ];
   Left(a;Length(a)-1)
 )
