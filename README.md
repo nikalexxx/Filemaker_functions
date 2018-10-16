@@ -16,6 +16,12 @@ reduce_eval(range(1;6);"a";"e";"a*e";1) // 720 (factorial)
 reduce_eval(range(1;10);"a";"e";"a & \"@\"";"") // "@@@@@@@@@@"
 ```
 
+### filter_eval  
+```javascript
+filter_eval(range(-3;3);"e";"not(e<0)") // "0¶1¶2¶3"
+filter_eval(range(1;10);"e";"Mod(e;2)=0") // "2¶4¶6¶8¶10"
+```
+
 ### map
 ```javascript
 map("a¶b¶c";"Upper") // "A¶B¶C"
