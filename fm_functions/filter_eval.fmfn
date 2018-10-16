@@ -1,0 +1,23 @@
+/**
+ * @name filter_eval
+ * @param {array} array
+ * @param {string} e
+ * @param {string} expression
+ * @returns {array}
+ *
+ * Usage:
+ * @example filter_eval(range(-3;3);"e";"not(e<0)") // "0¶1¶2¶3"
+ * @example filter_eval(range(1;10);"e";"Mod(e;2)=0") // "2¶4¶6¶8¶10"
+ */
+
+Let(
+  [
+    r = GetAsText(Random);
+    r = Right(r;Length(r)-2);
+    g = "exp_" & r;
+    start = g & "_f = " & g & "_f & Let([" & e & " = \"";
+    end = "\";" & g & " = " & expression & "];If(" & g & ";" & e & " & \"\¶\";\"\"))";
+    a = Evaluate("Let([" & g & "_f=\"\";" & start & Substitute(array;"¶";end & ";" & start) & end & "];" & g & "_f)")
+  ];
+  Left(a;Length(a)-1)
+)
