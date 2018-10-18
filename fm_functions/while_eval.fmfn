@@ -1,0 +1,21 @@
+/**
+ * @name while_eval
+ * @param {string} condition
+ * @param {string} expression
+ * @returns {string} empty string
+ *
+ * function works by using side effects
+ *
+ * Let(
+ *   [
+ *     $a=1;
+ *     $i=0;
+ *     w=while_eval("$i<10";
+ *       "Let([$a=$a*2;$i=$i+1];True)"
+ *     )
+ *   ];
+ *   $a
+ * ) // 1024
+ */
+
+ If(Evaluate(condition);Let(w=Evaluate(expression);while_eval(condition;expression)))

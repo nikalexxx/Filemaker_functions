@@ -1,0 +1,10 @@
+/**
+ * @name split
+ * @param {string} string
+ * @returns {array}
+ *
+ * Usage:
+ * @example split("abcde") // "a¶b¶c¶d¶e"
+ */
+
+If(string="";"";reduce_eval(range(1;Length(string));"a";"e";"a & Middle(\"" & string & "\";e;1)&If(e="&Length(string)&";\"\";\"\¶\")";""))
