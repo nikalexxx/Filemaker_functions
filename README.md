@@ -22,6 +22,25 @@ filter_eval(range(-3;3);"e";"not(e<0)") // "0¶1¶2¶3"
 filter_eval(range(1;10);"e";"Mod(e;2)=0") // "2¶4¶6¶8¶10"
 ```
 
+### split
+```javascript
+split("abcde") // "a¶b¶c¶d¶e"
+```
+
+### while_eval  
+```javascript
+Let(
+  [
+    $a=1;
+    $i=0;
+    w=while_eval("$i<10";
+      "Let([$a=$a*2;$i=$i+1];True)"
+    )
+  ];
+  $a
+) // 1024
+```
+
 ### map
 ```javascript
 map("a¶b¶c";"Upper") // "A¶B¶C"
