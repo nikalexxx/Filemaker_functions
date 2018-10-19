@@ -66,3 +66,8 @@ Set Variable [ $var[H("value 2")] ; 2]
 
 Show Custom Dialog [ $var[H("value 1")] + $var[H("value 2")] ]
 ```
+
+## Quine on Filemaker language
+```javascript
+Let([q=Char(34);s="Let([q=Char(34);s=];Left(s;18) & q & s & q & Right(s;Length(s)-18))"];Left(s;18) & q & s & q & Right(s;Length(s)-18))
+```
