@@ -22,6 +22,12 @@ filter_eval(range(-3;3);"e";"not(e<0)") // "0¶1¶2¶3"
 filter_eval(range(1;10);"e";"Mod(e;2)=0") // "2¶4¶6¶8¶10"
 ```
 
+### sort_eval
+```javascript
+sort_eval("6¶3¶7¶1";"a";"b";"GetAsNumber(a) < GetAsNumber(b)") // "1¶3¶6¶7"
+sort_eval(split("test");"a";"b";"a < b") // "e¶s¶t¶t"
+```
+
 ### split
 ```javascript
 split("abcde") // "a¶b¶c¶d¶e"
