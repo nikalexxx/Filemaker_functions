@@ -1,0 +1,28 @@
+/**
+ * @name sort_eval
+ * @param {array} array
+ * @param {string} a
+ * @param {string} b
+ * @param {string} expression
+ *
+ * Usage:
+ * @example sort_eval("6¶3¶7¶1";"a";"b";"GetAsNumber(a) < GetAsNumber(b)") // "1¶3¶6¶7"
+ * @example sort_eval(split("test");"a";"b";"a < b") // "e¶s¶t¶t"
+ */
+
+If(array="" or ValueCount(array)=1;
+  array;
+  Let(
+  [
+    p = GetValue(array;1);
+    n_array = RightValues(array;ValueCount(array)-1);
+    l_array = filter_eval(n_array;"e";
+    "Let([" & b & " = e;" & a & " = \"" & p & "\"];not (" & expression & "))");
+    r_array = filter_eval(n_array;"e";
+    "Let([" & b & " = e;" & a & " = \"" & p & "\"];" & expression & ")");
+    l = sort_eval(l_array;a;b;expression);
+    r = sort_eval(r_array;a;b;expression)
+  ];
+  Substitute(l & If(l="";"";"¶") & p & If(r="";"";"¶") & r;"¶¶";"¶")
+  )
+)
