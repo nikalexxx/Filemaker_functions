@@ -1,0 +1,7 @@
+/**
+ * @name getParam
+ * @param {string} paramName
+ * @returns {any}
+ */
+
+JSONGetElement(Get(ScriptParameter); "params." & paramName)

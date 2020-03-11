@@ -1,0 +1,12 @@
+/**
+ * @name function
+ * @param {string} functionName
+ * @returns {boolean}
+ */
+
+Let([
+    param = Get(ScriptParameter);
+    name = JSONGetElement(If(param ≠ ""; param; "{}"); "function");
+    current = If(name ≠ ""; name; "main")];
+    current = functionName
+)

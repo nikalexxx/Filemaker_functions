@@ -1,0 +1,11 @@
+/**
+ * @name setParams
+ * @param {string} functionName
+ * @param {string} jsonParams
+ * @returns {string}
+ */
+
+Let(
+    root = JSONSetElement("{}"; "function"; functionName; type.string);
+    JSONSetElement(root; "params"; "{" & Left(jsonParams; Length(jsonParams) - 1) & "}"; type.raw)
+)

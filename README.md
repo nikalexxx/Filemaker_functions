@@ -1,22 +1,35 @@
 # Filemaker_functions
 Useful custom functions for Filemaker
 
-## Examples
+## Functions to script control
+```
+# example_sript
+If [ function("main") ]
+  Show Custom Dialog [ "main branch" ]
+  Perform Script [ "example_sript"; Parameter: setParams("a&b"; param("a"; 1; type.number) & param("b"; "cat"; type.string))]
+Else If [ function("a&b") ]
+  Show Custom Dialog [ getParam("a") & ", " & getParam("b") ]
+  # output "1, cat"
+End If
+```
 
-### map_eval  
+
+## Pure function examples
+
+### map_eval
 ```javascript
 map_eval(range(1;3);"e";"e*e") // "1¶4¶9"
 map_eval("a¶b¶c";"e";"Char(Code(e)+10)") // "k¶l¶m"
 ```
 
-### reduce_eval  
+### reduce_eval
 ```javascript
 reduce_eval(range(1;100);"a";"e";"a+e";0) // 5050 (sum)
 reduce_eval(range(1;6);"a";"e";"a*e";1) // 720 (factorial)
 reduce_eval(range(1;10);"a";"e";"a & \"@\"";"") // "@@@@@@@@@@"
 ```
 
-### filter_eval  
+### filter_eval
 ```javascript
 filter_eval(range(-3;3);"e";"not(e<0)") // "0¶1¶2¶3"
 filter_eval(range(1;10);"e";"Mod(e;2)=0") // "2¶4¶6¶8¶10"
@@ -33,7 +46,7 @@ sort_eval(split("test");"a";"b";"a < b") // "e¶s¶t¶t"
 split("abcde") // "a¶b¶c¶d¶e"
 ```
 
-### while_eval  
+### while_eval
 ```javascript
 Let(
   [
@@ -64,6 +77,8 @@ range(2;-2) // "2¶1¶0¶-1¶-2"
 array_include("a¶b¶c";"a") // True
 array_include("a¶b¶c";"d") // False
 ```
+
+## Other
 
 ### H
 ```

@@ -1,0 +1,12 @@
+/**
+ * @name param
+ * @param {string} name
+ * @param {any} value
+ * @param {number} type
+ * @returns {string}
+ */
+
+Let(
+    json = JSONSetElement("{}"; name; value; type);
+    Middle(json; 2; Length(json) - 2) & ","
+)
